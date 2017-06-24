@@ -55,12 +55,12 @@ Create PRs: 500,000 Requests
 Delete Forks: 500,000 Requests  
 Total Requests: ~2,000,000
 
-With 100 Users @ 5000 Requests Each (500,000 Requests/Hour) it would take **4 Hours**
+With 100 Users @ 5000 Requests Each (500,000 Requests/Hour) it would take **4 Hours**  
 With 1 User @ 5000 Requests it would take **17 Days**
 
 **Network Traffic**
 
-List Repos (per 100): 100 B up, 500 KB down = 500 KB * 5,000 = 2500 MB
+List Repos (per 100): 100 B up, 500 KB down = 500 KB * 5,000 = 2500 MB  
 Fork Repos: 100 B * 500,000 = 50 MB  
 Edit Files: 100 B * 500,000 = 50 MB  
 Create PRs: 100 B * 500,000 = 50 MB  
