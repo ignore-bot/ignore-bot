@@ -6,29 +6,34 @@ require 'rubygems'
 require 'json'
 require 'mysql'
 
-token= File.read("oauth.token")
-dbuser = File.read("dbuser.token")
-dbpass = File.read("dbpass.token")
+def query(filename)
 
-sql = Mysql::connect("localhost", "#{dbuser}", "#{dbpass}", "ignore_bot");
+    token= File.read("oauth.token")
+    dbuser = File.read("dbuser.token")
+    dbpass = File.read("dbpass.token")
 
-uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store+path:/&sort=indexed&order=asc")
-request = Net::HTTP::Get.new(uri)
-request["Authorization"] = "bearer #{token}"
+    sql = Mysql::connect("localhost", "#{dbuser}", "#{dbpass}", "ignore_bot");
 
-req_options = {
-    use_ssl: uri.scheme == "https",
-}
+    url = "https://api.github.com/search/code?q=filename:#{filename}+path:/&sort=indexed&order=asc"
+    uri = URI.parse(url)
+    request = Net::HTTP::Get.new(uri)
+    request["Authorization"] = "bearer #{token}"
 
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-    http.request(request)
+    req_options = {
+        use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+    end
+
+    json = JSON.parse(response.body)
+
+    json["items"].each do |item| 
+        name = item["repository"]["full_name"] 
+        sql.query("INSERT INTO repositories (full_name, file_name) VALUES ('#{name}', '#{filename}');")
+    end
+
+    puts sql::query("SELECT * FROM repositories")::num_rows();
+
 end
-
-json = JSON.parse(response.body)
-
-json["items"].each do |item| 
-    name = item["repository"]["full_name"] 
-    sql.query("INSERT INTO repositories (full_name) VALUES ('#{name}');")
-end
-
-puts sql::query("SELECT * FROM repositories")::num_rows();
