@@ -27,8 +27,6 @@ def query(filename)
     }
     uri.query = URI.encode_www_form(params)
 
-    puts uri
-
     request = Net::HTTP::Get.new(uri)
     request["Authorization"] = "bearer #{token}"
 
