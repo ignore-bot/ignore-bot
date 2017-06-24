@@ -10,7 +10,7 @@ token= File.read("oauth.token")
 dbuser = File.read("dbuser.token")
 dbpass = File.read("dbpass.token")
 
-uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store+path:/")
+uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store+path:/&sort=indexed&order=asc")
 request = Net::HTTP::Get.new(uri)
 request["Authorization"] = "bearer #{token}"
 
