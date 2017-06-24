@@ -7,4 +7,6 @@ require './query.rb'
 
 # need some sort of loop here to do 5000 actions, and determine which one to do
 
-query(".DS_Store")
+File.open("ignore_files.txt").each do |line|
+    query(line)
+end
