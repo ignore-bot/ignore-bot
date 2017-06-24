@@ -49,16 +49,25 @@ DROP TABLE repositories;
 **API Requests**
 
 List 100 per Requests: 5,000 Requests to list all  
-Fork Each: 500,000 Requests  
-Clone/Edit/Push: 0 Requests  
-Create PR: 500,000 Requests  
+Fork Repos: 500,000 Requests  
+Edit Files: 500,000 Requests  
+Create PRs: 500,000 Requests  
 Delete Forks: 500,000 Requests  
-Total Requests: ~1,500,000
+Total Requests: ~2,000,000
 
-With 100 Users @ 5000 Requests Each (500,000 Requests/Hour) it would take **3 Hours**
+With 100 Users @ 5000 Requests Each (500,000 Requests/Hour) it would take **4 Hours**
+With 1 User @ 5000 Requests it would take **17 Days**
 
 **Network Traffic**
 
-Average Repo Size: 25 MB (total guess here)  
+List Repos (per 100): 100 B up, 500 KB down = 500 KB * 5,000 = 2500 MB
+Fork Repos: 100 B * 500,000 = 50 MB  
+Edit Files: 100 B * 500,000 = 50 MB  
+Create PRs: 100 B * 500,000 = 50 MB  
+Delete Forks: 100 B * 500,000 = 50 MB  
+Total Traffic: 2700 MB
 
-Assuming API interactions are negligible (< 1 KB), total traffic of 25 * 2 (pull & push) * 500,000 = 25,000,000 which is **25 TB**
+With a network speed of 1 MB/s, it would take **45 Minutes**
+
+> 100 B comes from approximation of each request sent.  
+> 5 MB from each request comes from counting 1 result as 5 KB times 100 results per page
