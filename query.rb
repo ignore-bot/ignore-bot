@@ -21,4 +21,4 @@ end
 
 json = JSON.parse(response.body)
 
-puts json["total_count"]
+json["items"].each { |item| puts item["repository"]["full_name"] }
