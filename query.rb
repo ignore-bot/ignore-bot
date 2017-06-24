@@ -14,7 +14,7 @@ def query(filename)
 
     sql = Mysql::connect("localhost", "#{dbuser}", "#{dbpass}", "ignore_bot");
 
-    url = "https://api.github.com/search/code?q=filename:#{filename}+path:/&sort=indexed&order=asc"
+    url = "https://api.github.com/search/code?q=filename:#{filename}+path:/&sort=indexed&order=asc&per_page=100"
     uri = URI.parse(url)
     request = Net::HTTP::Get.new(uri)
     request["Authorization"] = "bearer #{token}"
