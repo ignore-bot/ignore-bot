@@ -26,4 +26,6 @@ json = JSON.parse(response.body)
 
 json["items"].each { |item| puts item["repository"]["full_name"] }
 
-puts Mysql::client_version()
+sql = Mysql::connect("localhost", "#{dbuser}", "#{dbpass}", "ignore_bot");
+
+puts sql.server_info()
