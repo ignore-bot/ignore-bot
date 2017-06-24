@@ -12,3 +12,11 @@ Github API Bot which makes PRs to Ignore Common Files
 [API Docs for Search Query Syntax](https://help.github.com/articles/search-syntax/)
 
 [API Docs for Search Query on Code Syntax](https://help.github.com/articles/searching-code/)
+
+## MySQL
+
+Database: ignore_bot
+
+Table: repositories
+- id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+- full_name CHAR(128) NOT NULL
