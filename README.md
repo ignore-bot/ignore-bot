@@ -30,6 +30,14 @@ DROP TABLE repositories;
 
 ## Functionality
 
-- Search Repos with Bad Files 
-- Fork on Github, Clone, Edit Git Ignore, Push
-- Create Pull Request
+**Authentication**
+- Save user's OAuth token 
+- Add to Organization (as bot)
+- Accept Invite (as user)
+
+**Hourly**
+- Search Repos with Bad Files (as user)
+- Fork on Github to Org (as user) 
+- Clone, Edit Git Ignore, Push
+- Create Pull Request (as user)
+- Delete Fork (as user)
