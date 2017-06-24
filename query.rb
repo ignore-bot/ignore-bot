@@ -4,8 +4,11 @@ require 'net/http'
 require 'uri'
 require 'rubygems'
 require 'json'
+require 'mysql'
 
 token= File.read("oauth.token")
+dbuser = File.read("dbuser.token")
+dbpass = File.read("dbpass.token")
 
 uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store+path:/")
 request = Net::HTTP::Get.new(uri)
@@ -22,3 +25,5 @@ end
 json = JSON.parse(response.body)
 
 json["items"].each { |item| puts item["repository"]["full_name"] }
+
+puts Mysql::client_version()
