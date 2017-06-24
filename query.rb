@@ -2,6 +2,8 @@
 
 require 'net/http'
 require 'uri'
+require 'rubygems'
+require 'json'
 
 token= File.read("oauth.token")
 
@@ -17,4 +19,6 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
     http.request(request)
 end
 
-puts response.body
+json = JSON.parse(response.body)
+
+puts json["total_count"]
