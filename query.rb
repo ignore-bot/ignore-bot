@@ -7,7 +7,7 @@ require 'json'
 
 token= File.read("oauth.token")
 
-uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store")
+uri = URI.parse("https://api.github.com/search/code?q=filename:.DS_Store+path:/")
 request = Net::HTTP::Get.new(uri)
 request["Authorization"] = "bearer #{token}"
 
