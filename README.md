@@ -20,3 +20,9 @@ Database: ignore_bot
 Table: repositories
 - id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
 - full_name CHAR(128) NOT NULL
+
+## Functionality
+
+- Search Repos with Bad Files 
+- Fork on Github, Clone, Edit Git Ignore, Push
+- Create Pull Request
