@@ -7,11 +7,10 @@ main:
 	@echo ""
 
 install:
+	@echo ./db.sh
 	@echo -n "1" > page_number.txt
 
 list:
-	@mysql -p -D "ignore_bot" -e "SELECT * FROM repositories;"
+	@mysql -p -D "ignore_bot" -e "SELECT * FROM repos;"
 
-clean:
-	@mysql -p -D "ignore_bot" -e "DELETE FROM repositories;"
-	@echo -n "1" > page_number.txt
+clean: install
