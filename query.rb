@@ -28,4 +28,4 @@ json["items"].each { |item| puts item["repository"]["full_name"] }
 
 sql = Mysql::connect("localhost", "#{dbuser}", "#{dbpass}", "ignore_bot");
 
-puts sql.server_info()
+puts sql::query("SELECT * FROM repositories")::num_rows();
