@@ -22,6 +22,12 @@ Table: repositories
 - full_name CHAR(128) NOT NULL
 - file_name CHAR(128) NOT NULL
 
+```
+CREATE TABLE repositories ( ... );
+DELETE FROM repositories;
+DROP TABLE repositories;
+```
+
 ## Functionality
 
 - Search Repos with Bad Files 
