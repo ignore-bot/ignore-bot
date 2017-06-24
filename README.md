@@ -13,11 +13,20 @@ Github API Bot which makes PRs to Ignore Common Files
 
 [API Docs for Search Query on Code Syntax](https://help.github.com/articles/searching-code/)
 
+## Install
+
+Required Files:
+- dbname.token
+- dbuser.token
+- dbpass.token
+- tablename.token
+- oauth.token
+
 ## MySQL
 
 Database: ignore_bot
 
-Table: repositories
+Table: repos
 - id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
 - full_name CHAR(256) NOT NULL
 - file_name CHAR(64)  NOT NULL
