@@ -19,14 +19,9 @@ Database: ignore_bot
 
 Table: repositories
 - id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
-- full_name CHAR(128) NOT NULL
-- file_name CHAR(128) NOT NULL
-
-```
-CREATE TABLE repositories ( ... );
-DELETE FROM repositories;
-DROP TABLE repositories;
-```
+- full_name CHAR(256) NOT NULL
+- file_name CHAR(64)  NOT NULL
+- status    CHAR(64)  NOT NULL : fork, edit, pr, delete, done
 
 ## Functionality
 
