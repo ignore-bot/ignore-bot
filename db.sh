@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pword=`cat dbpass.token`
 db=`cat dbname.token`
