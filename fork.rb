@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'net/http'
+require 'uri'
 require 'rubygems'
 require 'json'
 require 'mysql'
@@ -20,6 +22,25 @@ def fork()
     puts name
 
     #edit SQL entry here
-    #fork #{name} here
+
+    # TEMPORARY DEBUGGING
+    name = "karagenit/ignore-bot"
+
+    uri = URI.parse("https://api.github.com/repos/#{name}/forks?organization=ignore-bot")
+
+    request = Net::HTTP::Post.new(uri)
+    request["Authorization"] = "bearer #{token}"
+
+    req_options = {
+        use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+    end
+
+    json = JSON.parse(response.body)
+
+    puts response.message #expect 202 Accepted
 
 end
